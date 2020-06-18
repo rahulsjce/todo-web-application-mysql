@@ -1,0 +1,13 @@
+applications:
+- name: todo-web-app-mysql
+  instances: 1
+  memory: 1024M
+  disk_quota: 1024M
+  path: target/todo-web-application-mysql.war
+  routes:
+  - route: todo-web-app-mysql-123.cfapps.io
+  buildpacks:
+  - https://github.com/cloudfoundry/java-buildpack.git
+  stack: cflinuxfs3
+  services:
+  - todo-database
